@@ -22,6 +22,7 @@ func _update_input_vector():
 
 func _process(_delta):
 	_update_input_vector()
+	_turn_to_mouse()
 	
 	
 
