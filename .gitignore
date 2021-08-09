@@ -5,4 +5,12 @@
 bin/
 .build/
 lib/
+<<<<<<< HEAD
 new_script.gd
+=======
+
+
+addons/dubug_higlight
+.idea
+*.import
+>>>>>>> 35a290c90ae1248b8ce3cf95d6e6e80f4eef6327

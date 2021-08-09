@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Enviroment/InteractZone/IntractZone.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enviroment/Button/ButtonScript.gd" type="Script" id=2]
+[ext_resource path="res://LocalTests/219479__jarredgibb__button-02-[AudioTrimmer.com].wav" type="AudioStream" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "push_button"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("CSGCylinder:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.5, 0, 0 ), Vector3( -0.25, 0, 0 ), Vector3( -0.5, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="SphereShape" id=4]
+
+[node name="Button" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="CSGTorus" type="CSGTorus" parent="." index="0"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0 )
+inner_radius = 0.001
+outer_radius = 1.0
+sides = 31
+ring_sides = 13
+material = SubResource( 1 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="." index="1"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.5, 0, 0 )
+radius = 0.566
+height = 0.491
+sides = 24
+material = SubResource( 2 )
+
+[node name="IKPosition" type="Position3D" parent="CSGCylinder" index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.5, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+anims/push_button = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3"]
+stream = ExtResource( 3 )
+
+[node name="TouchCollider" type="CollisionShape" parent="." index="4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Tween" type="Tween" parent="." index="5"]
+
+[connection signal="area_entered" from="." to="." method="_on_Button_area_entered"]
