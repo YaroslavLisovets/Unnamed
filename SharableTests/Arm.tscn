@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://LocalTests/Arm.glb" type="PackedScene" id=1]
+[ext_resource path="res://SharableTests/Arm.glb" type="PackedScene" id=1]
 
 [node name="Arm" instance=ExtResource( 1 )]
 
