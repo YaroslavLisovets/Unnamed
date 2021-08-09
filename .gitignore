@@ -5,8 +5,3 @@
 bin/
 .build/
 lib/
-
-
-addons/dubug_higlight
-.idea
-*.import
