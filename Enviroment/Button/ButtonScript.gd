@@ -1,6 +1,8 @@
 extends "res://Enviroment/InteractZone/InteractZone.gd"
 
-const Player = preload("res://SharableTests/PlayerScript.gd")
+const Player = preload("res://LocalTests/PlayerScript.gd")
+
+
 
 func activate(area:Player):
 	area.skeleton_ik.set_target_node($CSGCylinder/IKPosition.get_path())

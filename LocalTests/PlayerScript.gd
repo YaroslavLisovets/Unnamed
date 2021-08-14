@@ -17,8 +17,12 @@ func _turn_to_mouse():
 	
 
 func _update_input_vector():
-	_input_vector.x =  Input.get_action_strength("go_right") - Input.get_action_strength("go_left") 
 	_input_vector.y =  Input.get_action_strength("go_backward") - Input.get_action_strength("go_forward")
+	_input_vector.x =  Input.get_action_strength("go_right") - Input.get_action_strength("go_left") 
+	
+#	print(Input.get_action_strength("ui_up"),  Input.get_action_strength("ui_down"))
+#	print(Input.get_action_strength("ui_left"),  Input.get_action_strength("ui_right"))
+	
 
 func _process(_delta):
 	_update_input_vector()
