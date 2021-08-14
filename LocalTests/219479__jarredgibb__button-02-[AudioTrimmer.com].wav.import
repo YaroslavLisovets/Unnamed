@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/219479__jarredgibb__button-02-[AudioTrimmer.com].wav-f4f51ccf8d94841683248ec03b1a581c.sample"
+
+[deps]
+
+source_file="res://LocalTests/219479__jarredgibb__button-02-[AudioTrimmer.com].wav"
+dest_files=[ "res://.import/219479__jarredgibb__button-02-[AudioTrimmer.com].wav-f4f51ccf8d94841683248ec03b1a581c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
