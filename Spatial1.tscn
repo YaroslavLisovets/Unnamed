@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://LowSkillGridMap.tres" type="MeshLibrary" id=1]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource( 1 )
+data = {
+"cells": PoolIntArray( 65519, 0, 1441794, 65524, 0, 1, 65529, 0, 1, 65534, 0, 2, 65519, 65521, 655362, 65523, 65521, 655361, 65528, 65521, 655361, 65533, 65521, 655361, 65534, 65521, 1048578, 65523, 65523, 0, 65528, 65523, 0, 65533, 65523, 0, 65534, 65525, 1048577, 65519, 65526, 1441793, 65523, 65528, 0, 65528, 65528, 0, 65533, 65528, 0, 65519, 65531, 1441793, 65523, 65533, 0, 65528, 65533, 0, 65533, 65533, 0 )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
