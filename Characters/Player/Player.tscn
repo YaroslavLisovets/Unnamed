@@ -9,7 +9,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 script = ExtResource( 2 )
 
 [node name="Model" parent="." index="1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0 )
+transform = Transform( 4.7, 0, 0, 0, 4.7, 0, 0, 0, -4.7, 0, 0, 0 )
 
 [node name="BreastPivot" type="Position3D" parent="." index="2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.35859e-08, 6.15, 0.45 )
@@ -35,7 +35,7 @@ transform = Transform( 1, -6.22588e-08, -2.26603e-08, 6.22588e-08, 0.766044, 0.6
 cull_mask = 1047553
 doppler_tracking = 2
 current = true
-fov = 90.5
+fov = 107.5
 
 [node name="RemoteTransform" type="RemoteTransform" parent="." index="5"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.31125, 1.84794 )

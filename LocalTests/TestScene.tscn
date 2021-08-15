@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://LocalTests/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LocalTests/Wall.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enviroment/Door/Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Enviroment/Button/Button.tscn" type="PackedScene" id=4]
@@ -25,11 +25,13 @@ metallic_specular = 1.0
 [sub_resource type="SphereShape" id=6]
 radius = 4.5
 
+[sub_resource type="SphereMesh" id=7]
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 1, 0, 0, 1 )
+
 [node name="Scene" type="Spatial"]
 script = ExtResource( 5 )
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1, 0, 9.68575e-08, 0, 1, 0, -9.68575e-08, 0, -1, -0.490424, 0.228005, -4.0154 )
 
 [node name="Enviroment" type="Spatial" parent="."]
 
@@ -58,6 +60,13 @@ interactive_object_path = NodePath("../Door")
 
 [node name="CollisionShape2" type="CollisionShape" parent="Enviroment/Button"]
 shape = SubResource( 6 )
+
+[node name="CSGMesh" type="CSGMesh" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9498, 20.5339, 76.3156 )
+mesh = SubResource( 7 )
+material = SubResource( 8 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
 
 [connection signal="area_entered" from="Enviroment/Button" to="Enviroment/Button" method="_object_enntered"]
 [connection signal="area_entered" from="Enviroment/Button" to="Enviroment/Button" method="_body_exited"]
