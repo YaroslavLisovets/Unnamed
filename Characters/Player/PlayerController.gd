@@ -8,6 +8,7 @@ var min_camera_offset = -0.5
 var max_camera_offset = 0.5
 
 func _process(_delta):
+	
 	if GlobalStates.type == GlobalStates.TYPES.KEYBOARD_MOUSE:
 		_handle_keyboard()
 	elif GlobalStates.type == GlobalStates.TYPES.GAMEPAD:
