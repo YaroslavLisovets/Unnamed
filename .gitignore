@@ -10,3 +10,5 @@ lib/
 addons/dubug_higlight
 .idea
 *.import
+toImportLocal
+LocalTests
