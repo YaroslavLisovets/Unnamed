@@ -1,4 +1,3 @@
-# TODO Remove in future
 # https://github.com/godotengine/godot/pull/42408
 extends Node
 
