@@ -291,6 +291,10 @@ _global_script_class_icons={
 [application]
 
 config/name="Unnamed"
+<<<<<<< Updated upstream
+=======
+run/main_scene="res://MainBack.tscn"
+>>>>>>> Stashed changes
 config/icon="res://icon.png"
 
 [editor_plugins]
