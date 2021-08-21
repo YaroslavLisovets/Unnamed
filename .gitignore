@@ -10,5 +10,7 @@ lib/
 addons/dubug_higlight
 .idea
 *.import
-toImportLocal
-LocalTests
+*.translation
+ToImportLocal
+LocalTests/
+LocalTests/TestScene.gd
