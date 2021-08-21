@@ -10,6 +10,7 @@ var max_camera_offset = 1.5
 var _print_instance = _print_message_with_frames_delay(15)
 
 func _process(delta)->void:
+	print($"..")
 	if GlobalStates.type == GlobalStates.TYPES.KEYBOARD_MOUSE:
 		_handle_keyboard()
 	elif GlobalStates.type == GlobalStates.TYPES.GAMEPAD:

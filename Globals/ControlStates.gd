@@ -13,9 +13,9 @@ var type = TYPES.KEYBOARD_MOUSE
 
 onready var joy_id = Input.get_connected_joypads()[0] if Input.get_connected_joypads() else -1
 
-func _ready():
+func _ready() -> void:
 	print(Input.get_connected_joypads())
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+#	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	var __ = Input.connect("joy_connection_changed", self, "_joy_connection_changed")
 
 func _joy_connection_changed(device: int, connected: bool):
