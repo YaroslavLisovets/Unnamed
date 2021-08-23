@@ -309,12 +309,14 @@ _global_script_class_icons={
 [application]
 
 config/name="Unnamed"
-run/main_scene="res://LocalTests/TestScene.tscn"
+run/main_scene="res://LocalTests/UI/Lobby.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 GlobalStates="*res://Globals/ControlStates.gd"
+SteamManager="*res://Globals/SteamManager.gd"
+SceneChanger="*res://LocalTests/UI/SceneChanger.tscn"
 
 [debug]
 
