@@ -1,5 +1,6 @@
 # Import cache
 .import/
+*.import
 
 # Binaries
 bin/
@@ -12,5 +13,3 @@ addons/dubug_higlight
 *.import
 *.translation
 ToImportLocal
-LocalTests/
-LocalTests/TestScene.gd

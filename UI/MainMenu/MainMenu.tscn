@@ -1,0 +1,119 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UI/MainMenu/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://UI/Buttons/ButtonScene.gd" type="Script" id=2]
+[ext_resource path="res://Style/new_theme.tres" type="Theme" id=3]
+[ext_resource path="res://Enviroment/LevelObjects.tres" type="MeshLibrary" id=4]
+[ext_resource path="res://UI/DeathScreen/DeathScrean.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "StartButtonCameraTransition"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.45, 0.47, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 6.419, 12 ), Vector3( -10, 10.419, 0 ), Vector3( -10, 10.419, 0 ), Vector3( -9.8, 10.119, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.45 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -32.929, -5, 0 ), Vector3( -39.2636, -42.4804, 7.73929 ) ]
+}
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="Button" parent="Buttons"]
+margin_left = 412.0
+margin_top = 275.0
+margin_right = 612.0
+margin_bottom = 325.0
+rect_min_size = Vector2( 200, 50 )
+size_flags_horizontal = 4
+size_flags_vertical = 6
+toggle_mode = true
+keep_pressed_outside = true
+text = "Start"
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+scene_to_open = ExtResource( 5 )
+
+[node name="Background" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.419, 12 )
+
+[node name="Camera" type="Camera" parent="Background"]
+transform = Transform( 0.996195, 0.0473778, -0.0731537, 0, 0.839345, 0.543599, 0.0871558, -0.541531, 0.836151, 0, 6.419, 12 )
+fov = 71.1883
+
+[node name="GridMap" type="GridMap" parent="Background"]
+mesh_library = ExtResource( 4 )
+cell_size = Vector3( 1, 1, 1 )
+data = {
+"cells": PoolIntArray( 10, 2, 1048577, 65526, 3, 1441793, 0, 4, 1441792, 10, 4, 1441792, 65526, 4, 1441792, 10, 11, 1048577, 65526, 13, 1441793, 0, 14, 1441792, 10, 14, 1441792, 65526, 14, 1441792, 10, 15, 2, 65526, 16, 1441794, 0, 24, 0, -589824, 30, -535887867, 0, 65479, 655361, 720896, 65479, 655361, 0, 65480, 1048582, 720896, 65489, 655361, 0, 65490, 1048582, 720896, 65499, 655361, 655360, 65509, 655361, 0, 65515, 1441797, 720896, 65519, 655361, 65527, 65526, 327685, 9, 65527, 327685, 10, 65529, 1048578, 65526, 65529, 655362, 0, 65530, 1441792, 10, 65530, 1441792, 65526, 65530, 1441792 )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="CSGBox" type="CSGBox" parent="Background"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, -7 )
+width = 4.0
+height = 6.0
+depth = 6.0
+
+[node name="Penis" type="CSGCylinder" parent="Background"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, -4 )
+radius = 2.0
+height = 8.0
+
+[node name="RightBall" type="CSGSphere" parent="Background/Penis"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 1 )
+radius = 2.0
+
+[node name="LeftBall" type="CSGSphere" parent="Background/Penis"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 1 )
+radius = 2.0
+
+[node name="Head" type="CSGSphere" parent="Background/Penis"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
+radius = 2.0
+
+[node name="CameraAnimator" type="AnimationPlayer" parent="Background"]
+root_node = NodePath("../Camera")
+anims/StartButtonCameraTransition = SubResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[connection signal="mouse_entered" from="Buttons/StartButton" to="." method="_start_button_focused"]
+[connection signal="mouse_exited" from="Buttons/StartButton" to="." method="_start_button_unfocused"]
