@@ -291,6 +291,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Unnamed"
+run/main_scene="res://UI/MainMenu/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [debug]
