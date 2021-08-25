@@ -58,5 +58,5 @@ shape = SubResource( 6 )
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.819152, -0.286788, 0.496732, 0, 0.866025, 0.5, -0.573576, 0.409576, -0.709406, -17.65, 3.15, 10.45 )
 
-[connection signal="area_entered" from="Button" to="Button" method="_object_enntered"]
 [connection signal="area_entered" from="Button" to="Button" method="_body_exited"]
+[connection signal="area_entered" from="Button" to="Button" method="_object_enntered"]
