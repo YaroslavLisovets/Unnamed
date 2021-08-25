@@ -1,5 +1,6 @@
 # Import cache
 .import/
+*.import
 
 # Binaries
 bin/
@@ -13,4 +14,9 @@ new_script.gd
 addons/dubug_higlight
 .idea
 *.import
+<<<<<<< HEAD
 >>>>>>> 35a290c90ae1248b8ce3cf95d6e6e80f4eef6327
+=======
+*.translation
+ToImportLocal
+>>>>>>> db7b09f7ed8ded24831520ea4c7539232dd0c622
