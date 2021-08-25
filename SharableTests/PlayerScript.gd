@@ -22,6 +22,7 @@ func _update_input_vector():
 
 func _process(_delta):
 	_update_input_vector()
+	_turn_to_mouse()
 	
 	
 
@@ -33,6 +34,7 @@ func _move_character():
 	var velocity3 = move_and_slide(Vector3(_velocitry.x, 0, _velocitry.y))
 	_velocitry.x = velocity3.x
 	_velocitry.y = velocity3.z
+
 
 
 

@@ -1,0 +1,99 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://kimada/weapon/AK47.tscn" type="PackedScene" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends KinematicBody
+
+var moveSpeed: float = 5.0
+var jumpForce: float = 5.0
+var gravity: float = 12.0
+
+var minLookAngle: float = -90.0
+var maxLookAngle: float = 90.0
+var lookSensitivity : float = 0.5
+
+
+var vel: Vector3 = Vector3 ()
+var mouseDelta: Vector2 = Vector2 ()
+
+var ammo: int = 1
+
+onready var b_spawn = get_node(\"AK47/b_spawn\")
+onready var bulletScene = preload(\"res://kimada/weapon/bullet.tscn\")
+
+
+
+onready var camera = get_node(\"Camera\")
+
+func _input (event):
+
+	if event is InputEventMouseMotion:
+		mouseDelta = event.relative
+	if Input.is_action_just_pressed(\"shoot\") and ammo > 0:
+		shoot()
+	if Input.is_action_just_released(\"reload\"):
+		reload()
+		
+func _process (delta):
+	
+	camera.rotation_degrees -= Vector3(rad2deg(mouseDelta.y), 0, 0) * lookSensitivity * delta
+	
+	camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, minLookAngle, maxLookAngle)
+  
+	
+	rotation_degrees -= Vector3(0, rad2deg(mouseDelta.x), 0) * lookSensitivity * delta
+  
+	
+	mouseDelta = Vector2()
+
+
+func shoot ():
+	var bullet = bulletScene.instance()
+	get_node(\"/root/MainScene\").add_child(bullet)
+	bullet.global_transform = b_spawn.global_transform
+	bullet.scale = Vector3.ONE
+	ammo -= 1
+
+func reload ():
+	ammo += 1
+"
+
+[sub_resource type="CapsuleShape" id=2]
+radius = 0.248855
+height = 0.747985
+
+[sub_resource type="Animation" id=3]
+resource_name = "anima"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AK47:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.9, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.157084, 0.556922, -0.550026 ), Vector3( 0.156519, 0.556922, -0.520577 ), Vector3( 0.156822, 0.556922, -0.536388 ) ]
+}
+
+[node name="pik" type="KinematicBody"]
+transform = Transform( 0.997856, 0, 0.0654554, 0, 1, 0, -0.0654554, 0, 0.997856, 0, 0, 0 )
+script = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.99773, 0.0637833, 0.0215469, -0.0211284, -0.00723009, 0.99975, 0.0639231, -0.997937, -0.00586604, 0.000872511, 0.454272, -0.0133013 )
+shape = SubResource( 2 )
+
+[node name="AK47" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.0999815, 0, -0.00191801, 0, 0.1, 0, 0.00191801, 0, 0.0999815, 0.156822, 0.556922, -0.536388 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.999999, 0, 7.45058e-09, 0, 1, 0, 0, 0, 0.999999, -2.32831e-10, 0.906598, 0.0198336 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "anima"
+anims/anima = SubResource( 3 )
