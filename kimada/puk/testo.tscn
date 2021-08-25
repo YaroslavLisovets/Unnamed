@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://kimada/puk/player.tscn" type="PackedScene" id=1]
-
-[node name="Spatial" type="Spatial"]
-
-[node name="pik" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.997856, 0, 0.0654554, 0, 1, 0, -0.0654554, 0, 0.997856, -3.66439, -1.63298, -4.58743 )
