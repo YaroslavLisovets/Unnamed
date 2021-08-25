@@ -3,7 +3,11 @@
 [ext_resource path="res://UI/MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://UI/Buttons/ButtonScene.gd" type="Script" id=2]
 [ext_resource path="res://Style/new_theme.tres" type="Theme" id=3]
+<<<<<<< HEAD
 [ext_resource path="res://LevelObjects.tres" type="MeshLibrary" id=4]
+=======
+[ext_resource path="res://Enviroment/LevelObjects.tres" type="MeshLibrary" id=4]
+>>>>>>> parent of db7b09f (ф)
 [ext_resource path="res://UI/DeathScreen/DeathScrean.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]

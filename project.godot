@@ -309,7 +309,10 @@ _global_script_class_icons={
 [application]
 
 config/name="Unnamed"
+<<<<<<< HEAD
 run/main_scene="res://LocalTests/UI/Lobby.tscn"
+=======
+>>>>>>> parent of db7b09f (ф)
 config/icon="res://icon.png"
 
 [autoload]
