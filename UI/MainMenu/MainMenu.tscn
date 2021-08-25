@@ -3,8 +3,12 @@
 [ext_resource path="res://UI/MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://UI/Buttons/ButtonScene.gd" type="Script" id=2]
 [ext_resource path="res://Style/new_theme.tres" type="Theme" id=3]
+<<<<<<< HEAD
+[ext_resource path="res://LevelObjects.tres" type="MeshLibrary" id=4]
+=======
 [ext_resource path="res://Enviroment/LevelObjects.tres" type="MeshLibrary" id=4]
-[ext_resource path="res://UI/Multi/Multi.tscn" type="PackedScene" id=5]
+>>>>>>> parent of db7b09f (ф)
+[ext_resource path="res://UI/DeathScreen/DeathScrean.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "StartButtonCameraTransition"
@@ -73,13 +77,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.419, 12 )
 
 [node name="Camera" type="Camera" parent="Background"]
 transform = Transform( 0.996195, 0.0473778, -0.0731537, 0, 0.839345, 0.543599, 0.0871558, -0.541531, 0.836151, 0, 6.419, 12 )
+current = true
 fov = 71.1883
 
 [node name="GridMap" type="GridMap" parent="Background"]
 mesh_library = ExtResource( 4 )
 cell_size = Vector3( 1, 1, 1 )
 data = {
-"cells": PoolIntArray( 10, 2, 1048577, 65526, 3, 1441793, 0, 4, 1441792, 10, 4, 1441792, 65526, 4, 1441792, 10, 11, 1048577, 65526, 13, 1441793, 0, 14, 1441792, 10, 14, 1441792, 65526, 14, 1441792, 10, 15, 2, 65526, 16, 1441794, 0, 24, 0, -589824, 30, 983045, 0, 65479, 655361, 720896, 65479, 655361, 0, 65480, 1048582, 720896, 65489, 655361, 0, 65490, 1048582, 720896, 65499, 655361, 655360, 65509, 655361, 0, 65515, 1441797, 720896, 65519, 655361, 65527, 65526, 327685, 9, 65527, 327685, 10, 65529, 1048578, 65526, 65529, 655362, 0, 65530, 1441792, 10, 65530, 1441792, 65526, 65530, 1441792 )
+"cells": PoolIntArray( 10, 2, 1048577, 65526, 3, 1441793, 0, 4, 1441792, 10, 4, 1441792, 65526, 4, 1441792, 10, 11, 1048577, 65526, 13, 1441793, 0, 14, 1441792, 10, 14, 1441792, 65526, 14, 1441792, 10, 15, 2, 65526, 16, 1441794, 0, 24, 0, -589824, 30, -535887867, 0, 65479, 655361, 720896, 65479, 655361, 0, 65480, 1048582, 720896, 65489, 655361, 0, 65490, 1048582, 720896, 65499, 655361, 655360, 65509, 655361, 0, 65515, 1441797, 720896, 65519, 655361, 65527, 65526, 327685, 9, 65527, 327685, 10, 65529, 1048578, 65526, 65529, 655362, 0, 65530, 1441792, 10, 65530, 1441792, 65526, 65530, 1441792 )
 }
 __meta__ = {
 "_editor_clip_": 0

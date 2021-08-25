@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Enviroment/InteractZone/InteractZone.gd" type="Script" id=1]
+
+[node name="InteractZone" type="Area"]
+collision_layer = 0
+collision_mask = 524288
+script = ExtResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_object_enntered"]
+[connection signal="body_exited" from="." to="." method="_object_exited"]

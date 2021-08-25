@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "Controller",
+"language": "GDScript",
+"path": "res://Characters/Character/Controller.gd"
+}, {
 "base": "",
 "class": "GitAPI",
 "language": "NativeScript",
@@ -38,6 +43,16 @@ _global_script_classes=[ {
 "class": "LocalizationSave",
 "language": "GDScript",
 "path": "res://addons/localization_editor/model/LocalizationSave.gd"
+}, {
+"base": "KinematicBody",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Characters/Player/Player.gd"
+}, {
+"base": "Node",
+"class": "PlayerController",
+"language": "GDScript",
+"path": "res://Characters/Player/PlayerController.gd"
 }, {
 "base": "VisualShaderNodeCustom",
 "class": "VisualShaderNodeCellularNoise2D",
@@ -240,12 +255,15 @@ _global_script_classes=[ {
 "path": "res://addons/visual_shader_node_library/shader_nodes/common/to_polar_2d.gd"
 } ]
 _global_script_class_icons={
+"Controller": "",
 "GitAPI": "",
 "LocalizationData": "",
 "LocalizationKeys": "",
 "LocalizationPlaceholders": "",
 "LocalizationPlaceholdersData": "",
 "LocalizationSave": "",
+"Player": "",
+"PlayerController": "",
 "VisualShaderNodeCellularNoise2D": "",
 "VisualShaderNodeCellularNoise2D_2X2": "",
 "VisualShaderNodeCellularNoise3D": "",
@@ -291,8 +309,17 @@ _global_script_class_icons={
 [application]
 
 config/name="Unnamed"
-run/main_scene="res://UI/MainMenu/MainMenu.tscn"
+<<<<<<< HEAD
+run/main_scene="res://LocalTests/UI/Lobby.tscn"
+=======
+>>>>>>> parent of db7b09f (ф)
 config/icon="res://icon.png"
+
+[autoload]
+
+GlobalStates="*res://Globals/ControlStates.gd"
+SteamManager="*res://Globals/SteamManager.gd"
+SceneChanger="*res://LocalTests/UI/SceneChanger.tscn"
 
 [debug]
 
@@ -310,7 +337,7 @@ window/vsync/use_vsync=false
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "res://addons/Todo_Manager/plugin.cfg", "res://addons/jigglebones/plugin.cfg", "res://addons/localization_editor/plugin.cfg" )
 
 [gdnative]
 
