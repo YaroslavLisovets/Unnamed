@@ -13,22 +13,21 @@ var type = TYPES.KEYBOARD_MOUSE
 
 onready var joy_id = Input.get_connected_joypads()[0] if Input.get_connected_joypads() else -1
 
-func _ready():
-	print(Input.get_connected_joypads())
+func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	var __ = Input.connect("joy_connection_changed", self, "_joy_connection_changed")
+	Input.connect("joy_connection_changed", self, "_joy_connection_changed")
 
-func _joy_connection_changed(device: int, connected: bool):
+func _joy_connection_changed(device: int, connected: bool) -> void:
 	if connected:
 		joy_id = device
 	elif joy_id == device:
 		joy_id = -1
 		
 
-func _input(event):
+func _input(event) -> void:
 	if event.is_action_pressed("to_menu"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	elif typeof(event) in [InputEventMouse, InputEventKey]:
+	elif typeof(event) in [typeof(InputEventMouse), typeof(InputEventKey)]:
 		type = TYPES.KEYBOARD_MOUSE
 	elif typeof(event) in [typeof(InputEventJoypadButton), typeof(InputEventJoypadMotion)] :
 		type = TYPES.GAMEPAD

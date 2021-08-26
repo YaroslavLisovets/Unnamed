@@ -1,5 +1,9 @@
 extends "res://Characters/Character/Controller.gd"
 class_name PlayerController
+
+signal shoot
+signal reload
+
 var camera_rotation:Vector2 = Vector2.ZERO
 var sensivity = .0075
 var joy_deadzone = 0.3
@@ -9,28 +13,28 @@ var max_camera_offset = 1.5
 
 var _print_instance = _print_message_with_frames_delay(15)
 
-func _process(delta)->void:
+func _process(_delta)->void:
 	if GlobalStates.type == GlobalStates.TYPES.KEYBOARD_MOUSE:
 		_handle_keyboard()
 	elif GlobalStates.type == GlobalStates.TYPES.GAMEPAD:
 		_handle_joy_motion()
 	
-	input_vector.clamped(1.0)
-	input_vector = input_vector.rotated(-camera_rotation.y)#Изменение получаемого вектора движение отностильно
-	if input_vector:#проверка если вектор управления не нулевой, для правильно поворота персонажа по вектору движения движения
-		input_rotation = -input_vector.angle()-PI/2 #изменение поворота персонажа + добавления PI/2 из за изначального  смещения персонажа
+	wished_movement = wished_movement.clamped(1.0)
+	wished_movement = wished_movement.rotated(-camera_rotation.y)#Изменение получаемого вектора движение отностильно
+	if wished_movement:#проверка если вектор управления не нулевой, для правильно поворота персонажа по вектору движения движения
+		wished_rotation = -wished_movement.angle()-PI/2 #изменение поворота персонажа + добавления PI/2 из за изначального  смещения персонажа
 	
 
 
 func _handle_keyboard():
 	
-	input_vector.x = float(Input.is_action_pressed("go_right")) - float(Input.is_action_pressed("go_left"))
-	input_vector.y = float(Input.is_action_pressed("go_backward")) - float(Input.is_action_pressed("go_forward"))
+	wished_movement.x = float(Input.is_action_pressed("go_right")) - float(Input.is_action_pressed("go_left"))
+	wished_movement.y = float(Input.is_action_pressed("go_backward")) - float(Input.is_action_pressed("go_forward"))
 func _handle_joy_motion():
-	input_vector.x = Input.get_joy_axis(0, 0)
-	input_vector.y = Input.get_joy_axis(0, 1)
+	wished_movement.x = Input.get_joy_axis(0, 0)
+	wished_movement.y = Input.get_joy_axis(0, 1)
 	
-	input_vector = input_vector if input_vector.length() > joy_deadzone else Vector2.ZERO#TODO remove new instance creating
+	wished_movement = wished_movement if wished_movement.length() > joy_deadzone else Vector2.ZERO#TODO remove new instance creating
 
 	if Input.get_connected_joypads() and  Vector2(Input.get_joy_axis(Input.get_connected_joypads()[GlobalStates.joy_id], 2),
 	 Input.get_joy_axis(Input.get_connected_joypads()[GlobalStates.joy_id], 3)).length() > joy_deadzone:
@@ -48,13 +52,12 @@ func _print_message_with_frames_delay(restart_frame: float)->void:
 	var frames:int = 0
 	while true:
 		yield()
-#		frames =  wrapi(frames + 1, 0, frames)
 		frames += 1
 		if frames == restart_frame - 1:
-#			print("True length: ", sqrt(input_vector.x * input_vector.x+input_vector.y*input_vector.y))
-#			print("Vector legth: ", input_vector.length())
+#			print("True length: ", sqrt(wished_movement.x * wished_movement.x+wished_movement.y*wished_movement.y))
+#			print("Vector legth: ", wished_movement.length())
 		
-#			print("Vector legth: ", input_vector.distance_to(Vector2.ZERO))
+#			print("Vector legth: ", wished_movement.distance_to(Vector2.ZERO))
 			
 			frames = 0
 		
@@ -64,4 +67,7 @@ func _unhandled_input(event):
 		camera_rotation.x -= event.relative.y * sensivity
 		camera_rotation.y -= event.relative.x * sensivity
 		_clamp_camera()
-
+	elif event.is_action_pressed("shoot"):
+		emit_signal("shoot")
+	elif event.is_action_pressed("reload"):
+		emit_signal("reload")
