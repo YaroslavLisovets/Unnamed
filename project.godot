@@ -14,11 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Characters/Character/Controller.gd"
 }, {
-"base": "",
-"class": "GitAPI",
-"language": "NativeScript",
-"path": "res://git_api.gdns"
-}, {
 "base": "Resource",
 "class": "LocalizationData",
 "language": "GDScript",
@@ -256,7 +251,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Controller": "",
-"GitAPI": "",
 "LocalizationData": "",
 "LocalizationKeys": "",
 "LocalizationPlaceholders": "",
@@ -309,17 +303,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Unnamed"
-<<<<<<< HEAD
 run/main_scene="res://LocalTests/UI/Lobby.tscn"
-=======
->>>>>>> parent of db7b09f (ф)
 config/icon="res://icon.png"
 
 [autoload]
 
 GlobalStates="*res://Globals/ControlStates.gd"
 SteamManager="*res://Globals/SteamManager.gd"
-SceneChanger="*res://LocalTests/UI/SceneChanger.tscn"
 
 [debug]
 
@@ -335,13 +325,9 @@ multirun/other_window_args="join"
 window/dpi/allow_hidpi=true
 window/vsync/use_vsync=false
 
-[editor_plugins]
-
-enabled=PoolStringArray( "res://addons/Todo_Manager/plugin.cfg", "res://addons/jigglebones/plugin.cfg", "res://addons/localization_editor/plugin.cfg" )
-
 [gdnative]
 
-singletons=[ "res://git_api.gdnlib" ]
+singletons=[  ]
 
 [input]
 
