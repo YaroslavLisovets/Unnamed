@@ -28,7 +28,7 @@ func _joy_connection_changed(device: int, connected: bool):
 func _input(event):
 	if event.is_action_pressed("to_menu"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	elif typeof(event) in [InputEventMouse, InputEventKey]:
+	elif typeof(event) in [typeof(InputEventMouse), typeof(InputEventKey)]:
 		type = TYPES.KEYBOARD_MOUSE
 	elif typeof(event) in [typeof(InputEventJoypadButton), typeof(InputEventJoypadMotion)] :
 		type = TYPES.GAMEPAD

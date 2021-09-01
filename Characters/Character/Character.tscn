@@ -98,7 +98,7 @@ nodes/strafe/node = SubResource( 15 )
 nodes/strafe/position = Vector2( 260, 100 )
 nodes/strafe_speed/node = SubResource( 16 )
 nodes/strafe_speed/position = Vector2( 520, 100 )
-node_connections = [ "output", 0, "strafe_speed", "strafe_speed", 0, "BlendSpace1D" ]
+node_connections = [ "strafe_speed", 0, "BlendSpace1D", "output", 0, "strafe_speed" ]
 
 [node name="Character" type="KinematicBody"]
 transform = Transform( -1, 0, 9.68575e-08, 0, 1, 0, -9.68575e-08, 0, -1, 0, 0, 0 )

@@ -10,6 +10,6 @@ var LOBBY_INVITE_ARG: bool = false
 
 func _ready() -> void:
 	print(Steam.steamInit())
-	
-func _process(delta: float) -> void:
+
+func _process(_delta: float) -> void:
 	Steam.run_callbacks()

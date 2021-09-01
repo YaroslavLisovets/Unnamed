@@ -19,5 +19,3 @@ func _physics_process(delta):
 	_rotate(delta)
 
 
-func _ready() -> void:
-	print($AnimationPlayer.current_animation)
