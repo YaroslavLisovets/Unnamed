@@ -19,7 +19,7 @@
 [ext_resource path="res://Characters/HumanoidCharacter/Animations/walk_back_left-loop.tres" type="Animation" id=17]
 [ext_resource path="res://Characters/HumanoidCharacter/Character.gd" type="Script" id=18]
 
-[sub_resource type="Curve" id=20]
+[sub_resource type="Curve" id=1]
 _data = [ Vector2( 0.355556, 0.281818 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="CapsuleShape" id=2]
@@ -108,10 +108,10 @@ nodes/strafe_speed/node = SubResource( 18 )
 nodes/strafe_speed/position = Vector2( 600, 40 )
 node_connections = [ "output", 0, "strafe_speed", "strafe_speed", 0, "BlendSpace1D" ]
 
-[node name="HumanoidCharacter" type="KinematicBody"]
+[node name="Character" type="KinematicBody"]
 transform = Transform( -1, 0, 9.68575e-08, 0, 1, 0, -9.68575e-08, 0, -1, 0, 0, 0 )
 script = ExtResource( 18 )
-speed_curve = SubResource( 20 )
+speed_curve = SubResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1.6, -1.54972e-07, -1.54972e-07, 1.54972e-07, -6.99382e-08, 1.6, -1.54972e-07, -1.6, -6.99382e-08, 0, 4.3, 0 )

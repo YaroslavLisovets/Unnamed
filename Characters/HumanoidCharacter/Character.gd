@@ -20,7 +20,7 @@ func _physics_process(delta):
 	_rotate(delta)	
 	_move()
 	_animate()
-	
+
 func _animate():
 	animation_tree.set("parameters/BlendSpace1D/blend_position",-(_controller.input_vector as Vector2).rotated(rotation.y).y)
 

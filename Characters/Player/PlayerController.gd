@@ -16,10 +16,13 @@ onready var _sensivity_screen_ratio = get_viewport().size.x / get_viewport().siz
 
 
 func _process(delta)->void:
-	if GlobalStates.type == GlobalStates.TYPES.KEYBOARD_MOUSE:
-		_handle_keyboard()
-	elif GlobalStates.type == GlobalStates.TYPES.GAMEPAD:
-		_handle_joy_motion()
+#	if GlobalStates.type == GlobalStates.TYPES.KEYBOARD_MOUSE:
+#		_handle_keyboard()
+#	elif GlobalStates.type == GlobalStates.TYPES.GAMEPAD:
+#		_handle_joy_motion()
+	input_vector.x = float(Input.get_action_strength("go_right")) - float(Input.get_action_strength("go_left"))
+	input_vector.y = float(Input.get_action_strength("go_backward")) - float(Input.get_action_strength("go_forward"))
+	print(input_vector)
 	
 	input_vector = input_vector.clamped(1.0)
 	input_vector = input_vector.rotated(-camera_rotation.y)#Изменение получаемого вектора движение отностильно
